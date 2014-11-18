@@ -1,0 +1,47 @@
+.newQuestion .col-md-8.col-md-offset-2 {
+    border-bottom: 1px solid;
+    padding-bottom: 15px;
+}
+
+#feedbackSection .questionText {
+    background-color: #d9edf7;
+    padding: 10px;
+    width: inherit;
+    text-align: center;
+}
+
+#adminSection {
+	display : none;
+}
+
+#footer {
+	margin-top : 30px;
+	padding-top: 10px;
+}
+
+
+#loginSection h2{
+	margin-left : 115px;
+}
+
+#feedbackSection {
+	display: none;
+}
+
+#loader {
+	margin-bottom : 20px;
+}
+#message {
+	display : none;
+	margin-top : 10px;
+}
+
+#adminSection .newQuestion h2 {
+	padding: 5px;
+    text-align: center;
+}
+
+.totalResponses, .sentimentNumbers {
+	font-size : 1.2em;
+	font-weight : bold;
+}
