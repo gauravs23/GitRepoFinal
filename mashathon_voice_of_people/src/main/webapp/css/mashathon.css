@@ -45,3 +45,30 @@
 	font-size : 1.2em;
 	font-weight : bold;
 }
+
+.previousQuestionResults {
+	display:none;
+}
+.logOutButton {
+	color: black;
+	float: right;
+}
+
+.logOutButton {
+    color: #dedede;
+    float: right;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.logOutButton a{
+    color: #fff;
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+.dataSheetLink > a {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: underline;
+}

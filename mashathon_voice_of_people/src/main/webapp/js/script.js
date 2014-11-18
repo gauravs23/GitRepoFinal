@@ -75,51 +75,52 @@ var script = {
 	  });
 	  
 	  
-	  $('#seeResults').on("click", function() {
-		  $('#message').hide();
-		  alert("getting all responses from datastore.....");
-
-		  $.get('rest/settings/get-responses', function(data) {
-			  alert("all responses data : "+data);
-			  alert("data length : "+data.length);
+	  $('#toggleResults').on("click", function() {
+		  if ($('.previousQuestionResults').css('display') == 'none') {
 			  
-			  $('.totalResponses span').text(data.length);
-			  
-			  var totalResponses = data.length;
-			  var overallSentimentScore = 0;
-			  var totalPositiveSentiments = 0;
-			  var totalNegativeSentiments = 0
-			  var totalNeutralSentiments = 0;
-			  var sentiment;
-			  var score;
-			  
-			  for (var key in data) {
-				  var obj = data[key];
-				  sentiment = obj.sentiment.sentiment;
-		  		  score = obj.sentiment.score;
-		  		  if(sentiment == 'positive') {
-		  			  totalPositiveSentiments++;
-		  		  } else if (sentiment == 'negative') {
-		  			  totalNegativeSentiments++;
-		  		  } else if(sentiment == 'neutral') {
-		  			  totalNeutralSentiments++;
-		  		  }
-		  		  overallSentimentScore += score;
-			  }
-			  	$(".numPositiveResponse span").text(totalPositiveSentiments);
-			  	$(".numNuetralResponse span").text(totalNegativeSentiments);
-			  	$(".numNegativeResponse span").text(totalNeutralSentiments);
-			  	
-			  	if(overallSentimentScore > 0) {
-			  		$('.overallSentiment span.type').text("POSITIVE");
-			  	} else if (overallSentimentScore < 0) {
-			  		$('.overallSentiment span.type').text("NEGATIVE");
-			  	} else {
-			  		$('.overallSentiment span.type').text("NEUTRAL");
-			  	}
-			  	$('.overallSentiment span.score').text(overallSentimentScore);
-			  	
-		  });
+			  $.get('rest/settings/get-responses', function(data) {
+				  
+				  $('.totalResponses span').text(data.length);
+				  
+				  var totalResponses = data.length;
+				  var overallSentimentScore = 0;
+				  var totalPositiveSentiments = 0;
+				  var totalNegativeSentiments = 0
+				  var totalNeutralSentiments = 0;
+				  var sentiment;
+				  var score;
+				  
+				  for (var key in data) {
+					  var obj = data[key];
+					  sentiment = obj.sentiment.sentiment;
+			  		  score = obj.sentiment.score;
+			  		  if(sentiment == 'positive') {
+			  			  totalPositiveSentiments++;
+			  		  } else if (sentiment == 'negative') {
+			  			  totalNegativeSentiments++;
+			  		  } else if(sentiment == 'neutral') {
+			  			  totalNeutralSentiments++;
+			  		  }
+			  		  overallSentimentScore += score;
+				  }
+				  	$(".numPositiveResponse span").text(totalPositiveSentiments);
+				  	$(".numNuetralResponse span").text(totalNeutralSentiments);
+				  	$(".numNegativeResponse span").text(totalNegativeSentiments);
+				  	
+				  	if(overallSentimentScore > 0) {
+				  		$('.overallSentiment span.type').text("POSITIVE");
+				  	} else if (overallSentimentScore < 0) {
+				  		$('.overallSentiment span.type').text("NEGATIVE");
+				  	} else {
+				  		$('.overallSentiment span.type').text("NEUTRAL");
+				  	}
+				  	$('.overallSentiment span.score').text(overallSentimentScore);
+				  	
+				  	$('.previousQuestionResults').show();
+			  });
+	  		} else {
+			  	$('.previousQuestionResults').hide();
+	  		}
 	  });
 	  
   }

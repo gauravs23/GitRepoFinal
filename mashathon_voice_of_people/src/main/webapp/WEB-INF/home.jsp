@@ -35,7 +35,7 @@
 		<c:if test="${superAdmin == true}" >
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<p><a id="togglAdminSection" href="javascript:void(0)">Toggle Admin Section</a></p>
+					<p><a class="btn btn-primary" id="togglAdminSection" href="javascript:void(0)">Toggle Admin Section</a></p>
 				</div>
 			</div>
 	
@@ -56,13 +56,13 @@
 				<div class="row previousQuestion">
 					<div class="col-md-8 col-md-offset-2">
 						<h2>Most Recent Question Asked</h2>
-						<h3 class="questionText">How was our Annual Event?</h3>
-						<p><input class="btn btn-success" type="button" id="seeResults" value="See Results"></p>
+						<h3 class="questionText"><No Question Available></h3>
+						<p><input class="btn btn-success" type="button" id="toggleResults" value="Toggle Results"></p>
 					</div>
 				</div>
 				<div class="row previousQuestionResults">
 					<div class="col-md-8 col-md-offset-2">
-						<div class="alert alert-info dataSheetLink">You can access the detailed responses of all users in the spreadsheet at the following locations : <a href="http://docs.google.com" target="_blank">See Detailed Data</a></div>
+						<div class="alert alert-info dataSheetLink">You can access the detailed responses of all users in the spreadsheet at the following locations : <a href="https://docs.google.com/spreadsheets/d/1IzmcQHv2HDtoyaVAo_cfu5nRa7z9Ii6fUtwhMJrLxk0/pubhtml" target="_blank">See Detailed Data</a></div>
 						<div class="sentimentAnalysisReport">
 							<div class="row">	
 								<div class="col-md-10">
@@ -70,8 +70,9 @@
 									<div class="sentimentNumbers">
 										<p class="numPositiveResponse">Total Positive Sentiments : <span>nil</span></p>
 										<p class="numNuetralResponse">Total Neutral Sentiments : <span>nil</span></p>
-										<p class="numNegativeResponse">Total Positive Sentiments : <span>nil</span></p>
-										<p class="overallSentiment">Overall Sentiment of the Audience :  <span class="type"></span> (with a score* of = <span class="score"></span>)</p>
+										<p class="numNegativeResponse">Total Negative Sentiments : <span>nil</span></p>
+										<p class="overallSentiment">Overall Sentiment of the Audience :  <span class="type"></span> (with a score* of = <span class="score">nil</span>)</p>
+										<h6>*Please note that the sentiment score is measured from -1 to +1. The score closer to 1 is has most positive sentiment while close to -1 has most negative sentiment. For details of the all feedback, visit the above spreadsheet link.</h6>
 									</div>
 								</div>
 							</div>

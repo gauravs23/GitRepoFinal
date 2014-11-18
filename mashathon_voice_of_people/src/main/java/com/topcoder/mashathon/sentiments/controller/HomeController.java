@@ -27,6 +27,8 @@ import com.topcoder.mashathon.sentiments.domain.user.UserRepository;
 @Controller
 public class HomeController {
 
+    private static final String ALLOWED_DOMAIN = "appirio-dev3.com";
+    
     /**
      * User Repository instance.
      */
@@ -68,11 +70,16 @@ public class HomeController {
     public String index(ModelMap model) {
         User currentUser = UserServiceFactory.getUserService().getCurrentUser();
         if (currentUser != null) {
-            if (userRepository.isUserSuperAdmin(currentUser.getEmail())) {
-                model.addAttribute("superAdmin", "true");
+            String currentUserEmail = currentUser.getEmail();
+            if(currentUserEmail.toLowerCase().contains(ALLOWED_DOMAIN)) {
+                if (userRepository.isUserSuperAdmin(currentUserEmail)) {
+                    model.addAttribute("superAdmin", "true");
+                }
+                model.addAttribute("currentUserEmail", currentUser.getEmail());
+                return "home";
+            } else {
+                return "forbidden";
             }
-            model.addAttribute("currentUserEmail", currentUser.getEmail());
-            return "home";
         } else {
             return "login";
         }

@@ -20,8 +20,10 @@
 		<div class="col-md-4 col-md-offset-4">
 			<h1>VOICE OF PEOPLE</h1>
 		</div>
-		<div class="col-md-2">
-			<p class="logOutButton"><a href="${logoutURL}" >Logout</a></p>
+		<div class="col-md-3">
+			<c:if test="${not empty currentUserEmail}" >
+				<p class="logOutButton">Welcome ${currentUserEmail} <a href="${logoutURL}" >Logout</a></p>
+			</c:if>
 		</div>
 	</div>
 	
